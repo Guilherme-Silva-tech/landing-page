@@ -251,6 +251,17 @@
   margin: 64px auto 0;
 }
 
+.demoImg {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(108, 60, 225, 0.15);
+}
+
 .demoWindow {
   background: #1A1A24;
   border: 1px solid rgba(139, 92, 246, 0.3);

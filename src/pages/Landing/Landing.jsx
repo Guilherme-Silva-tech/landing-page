@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from './Landing.module.css'
 import logo from '../../assets/logo.jpg'
+import demo from '../../assets/demo.png'
 
 const nav = [
   { label: 'Como funciona', href: '#como-funciona' },
@@ -78,7 +79,7 @@ const faqs = [
   {
     pergunta: 'Preciso de equipamento especial para usar?',
     resposta:
-      'Não. A KendryiaIA funciona em navegador (Android e PC) e pelo app Bluefy no iPhone. Suporta as etiquetadoras térmicas via Bluetooth.',
+      'Não. A KendryIA funciona em navegador (Android e PC) e pelo app Bluefy no iPhone. Suporta as etiquetadoras térmicas via Bluetooth.',
   },
   {
     pergunta: 'A IA entende o que eu falo ou digito?',
@@ -122,10 +123,6 @@ export default function Landing() {
   const [faqOpen, setFaqOpen] = useState(null)
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const hoje = new Date()
-  const producao = hoje.toLocaleDateString('pt-BR')
-  const validade = new Date(hoje.getTime() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('pt-BR')
-
   const closeMobile = () => setMobileOpen(false)
 
   return (
@@ -134,8 +131,8 @@ export default function Landing() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <a href="/" className={styles.logo} onClick={closeMobile}>
-            <img src={logo} alt="Logo KendryaIA" className={styles.logoImg} width={36} height={36} />
-            Kendrya<span className={styles.logoAccent}>IA</span>
+            <img src={logo} alt="Logo KendryIA" className={styles.logoImg} width={36} height={36} />
+            Kendry<span className={styles.logoAccent}>IA</span>
           </a>
 
           <nav className={styles.nav}>
@@ -187,7 +184,7 @@ export default function Landing() {
           <span className={styles.highlight}>falando com a IA</span>
         </h1>
         <p className={styles.subtitle}>
-          Diga ou digite o pedido e a KendryiaIA gera as etiquetas prontas,
+          Diga ou digite o pedido e a KendryIA gera as etiquetas prontas,
           padronizadas e imprime direto na sua etiquetadora por Bluetooth.
           Menos retrabalho, mais conformidade.
         </p>
@@ -205,108 +202,7 @@ export default function Landing() {
         </p>
 
         <div className={styles.demo}>
-          <div className={styles.demoWindow}>
-            {/* TOPO DO APP */}
-            <div className={styles.demoTop}>
-              <div>
-                <div className={styles.demoLogo}>KendryaIA</div>
-                <div className={styles.demoSub}>Etiquetas inteligentes</div>
-              </div>
-              <div className={styles.demoTopRight}>
-                <span className={styles.demoBell}>🔔</span>
-                <span className={styles.demoUserChip}>
-                  <span className={styles.demoAvatar}>J</span>
-                  João
-                </span>
-                <span className={styles.demoSair}>Sair</span>
-              </div>
-            </div>
-
-            {/* ABAS */}
-            <div className={styles.demoTabs}>
-              <span className={`${styles.demoTab} ${styles.demoTabActive}`}>✨ Gerar</span>
-              <span className={styles.demoTab}>👑 Admin</span>
-            </div>
-
-            <div className={styles.demoBody}>
-              {/* CHAT */}
-              <div className={styles.demoChat}>
-                <div className={styles.demoEmpty}>
-                  <div className={styles.demoEmptyIcon}>🏷️</div>
-                  <div className={styles.demoEmptyTitle}>Bem-vindo 👋</div>
-                  <div className={styles.demoEmptyText}>
-                    Ex: "quero 15 etiquetas de frango congelado sif 234"
-                  </div>
-                </div>
-
-                <div className={`${styles.msg} ${styles.msgUser}`}>
-                  <span className={styles.msgMic}>🎤</span> quero 15 etiquetas de
-                  frango congelado sif 234
-                </div>
-                <div className={`${styles.msg} ${styles.msgBot}`}>
-                  ✅ 15 etiqueta(s) gerada(s)
-                </div>
-              </div>
-
-              {/* ETIQUETA GERADA (igual à da impressora) */}
-              <div className={styles.demoResult}>
-                <div className={styles.etiqueta}>
-                  <div className={styles.etiquetaHeader}>
-                    <span className={styles.etiquetaLogo}>KENDRYIA</span>
-                    <span className={styles.etiquetaTipoTop}>ETIQUETA</span>
-                  </div>
-                  <div className={styles.etiquetaProduto}>FRANGO</div>
-                  <div className={styles.etiquetaInfo}>
-                    <div className={styles.etiquetaRowTop}>
-                      <span>
-                        <b>PRODUÇÃO:</b> {producao}
-                      </span>
-                      <span>
-                        <b>VALIDADE:</b> {validade}
-                      </span>
-                    </div>
-                    <div className={styles.etiquetaRowBottom}>
-                      <span>
-                        <b>SIF:</b> 234
-                      </span>
-                      <span>
-                        <b>RESP:</b> João
-                      </span>
-                    </div>
-                  </div>
-                  <div className={styles.etiquetaTipos}>
-                    <span className={styles.etiquetaTipo}>
-                      <span className={styles.etiquetaCheck}>✓</span> CONGELADO
-                    </span>
-                    <span className={styles.etiquetaTipo}>
-                      <span className={styles.etiquetaCheck} /> RESFRIADO
-                    </span>
-                    <span className={styles.etiquetaTipo}>
-                      <span className={styles.etiquetaCheck} /> SECO
-                    </span>
-                  </div>
-                </div>
-
-                <span className={styles.maisEtiquetas}>
-                  +14 etiquetas <small>👁️ ver todas</small>
-                </span>
-
-                <div className={styles.demoPrintRow}>
-                  <button className={styles.demoPrintA}>🖨️ Imprimir IMPRESSORA A</button>
-                  <button className={styles.demoPrintB}>🖨️ Imprimir IMPRESSORA B</button>
-                </div>
-              </div>
-
-              {/* INPUT */}
-              <div className={styles.demoInputRow}>
-                <span className={styles.demoInput}>Digite ou fale o que precisa...</span>
-                <div className={styles.demoInputBtns}>
-                  <button className={styles.demoSend}>Enviar</button>
-                  <button className={styles.demoVoice}>🎤 Falar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src={demo} alt="Demonstração do sistema KendryIA" className={styles.demoImg} />
         </div>
       </section>
 
@@ -434,8 +330,8 @@ export default function Landing() {
         <div className={styles.footerInner}>
           <div>
             <div className={styles.footerLogo}>
-              <img src={logo} alt="Logo KendryaIA" className={styles.logoImgFooter} width={30} height={30} />
-              Kendrya<span className={styles.logoAccent}>IA</span>
+              <img src={logo} alt="Logo KendryIA" className={styles.logoImgFooter} width={30} height={30} />
+              Kendry<span className={styles.logoAccent}>IA</span>
             </div>
             <p className={styles.footerTagline}>
               Etiquetas inteligentes para restaurantes e indústrias.
@@ -456,7 +352,7 @@ export default function Landing() {
           </div>
         </div>
         <div className={styles.footerBottom}>
-          © {new Date().getFullYear()} KendryaIA. Todos os direitos reservados.
+          © {new Date().getFullYear()} KendryIA. Todos os direitos reservados.
         </div>
       </footer>
     </div>

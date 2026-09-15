@@ -1,6 +1,6 @@
-# Landing Page — KendryaIA
+# Landing Page — KendryIA
 
-Landing page institucional da KendryaIA: sistema de etiquetas inteligentes para restaurantes com reconhecimento de voz e IA (n8n + OpenAI), com impressão direta por Bluetooth.
+Landing page institucional da KendryIA: sistema de etiquetas inteligentes para restaurantes com reconhecimento de voz e IA (n8n + OpenAI), com impressão direta por Bluetooth.
 
 ## Stack
 
