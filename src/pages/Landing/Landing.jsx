@@ -2,6 +2,81 @@ import { useState } from 'react'
 import styles from './Landing.module.css'
 import logo from '../../assets/logo.jpg'
 
+const paths = {
+  mic: (
+    <>
+      <rect x="9" y="2" width="6" height="12" rx="3" />
+      <path d="M5 10a7 7 0 0 0 14 0" />
+      <path d="M12 19v3" />
+    </>
+  ),
+  bot: (
+    <>
+      <path d="M12 8V4H8" />
+      <rect width="16" height="12" x="4" y="8" rx="2" />
+      <path d="M2 14h2" />
+      <path d="M20 14h2" />
+      <path d="M15 13v2" />
+      <path d="M9 13v2" />
+    </>
+  ),
+  printer: (
+    <>
+      <path d="M6 9V2h12v7" />
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+      <rect x="6" y="14" width="12" height="8" rx="1" />
+    </>
+  ),
+  tag: (
+    <>
+      <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+      <circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" />
+    </>
+  ),
+  list: (
+    <>
+      <path d="M11 12H3" />
+      <path d="M16 6H3" />
+      <path d="M16 18H3" />
+      <path d="M18 9v6" />
+      <path d="M21 12h-6" />
+    </>
+  ),
+  users: (
+    <>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </>
+  ),
+  workflow: (
+    <>
+      <rect width="8" height="8" x="3" y="3" rx="2" />
+      <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+      <rect width="8" height="8" x="13" y="13" rx="2" />
+    </>
+  ),
+}
+
+function Icon({ name, size = 24 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {paths[name]}
+    </svg>
+  )
+}
+
 const nav = [
   { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#como-funciona' },
@@ -11,37 +86,37 @@ const nav = [
 
 const recursos = [
   {
-    icon: '🎤',
+    icon: 'mic',
     titulo: 'Comando por voz',
     texto:
       'Diga o que precisa e pronto: "15 etiquetas de frango congelado SIF 234". A IA entende o pedido na hora — sem digitar nada.',
   },
   {
-    icon: '🤖',
+    icon: 'bot',
     titulo: 'IA via n8n + OpenAI',
     texto:
       'Um agente de IA interpreta cada pedido livre de forma inteligente e devolve as etiquetas prontas, padronizadas e com todos os campos certos.',
   },
   {
-    icon: '🖨️',
+    icon: 'printer',
     titulo: 'Impressão direta por Bluetooth',
     texto:
       'Conecte suas impressoras térmicas de etiqueta (Niimbot e Coibeu) e imprima direto do celular ou do computador — sem cabos, sem configuração.',
   },
   {
-    icon: '🏷️',
+    icon: 'tag',
     titulo: 'Etiquetas prontas para a legislação',
     texto:
       'Produto, tipo (congelado/resfriado/seco), código SIF e validade calculada automaticamente. Controle sanitário em dia, sem retrabalho.',
   },
   {
-    icon: '🔁',
+    icon: 'list',
     titulo: 'Fila inteligente de impressão',
     texto:
       'Acumule vários pedidos e imprima todos de um toque só. Ajuste quantidades com + e −, veja tudo antes de enviar para a impressora.',
   },
   {
-    icon: '👨‍🍳',
+    icon: 'users',
     titulo: 'Gestão de equipe e acesso',
     texto:
       'Crie funcionários, defina permissões por papel e acompanhe o histórico de impressões de cada responsável. Controle total do seu restaurante.',
@@ -141,13 +216,32 @@ const orcamentoBtn = {
 
 export default function Landing() {
   const [faqOpen, setFaqOpen] = useState(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [form, setForm] = useState({ nome: '', restaurante: '', mensagem: '' })
+
+  const hoje = new Date()
+  const producao = hoje.toLocaleDateString('pt-BR')
+  const validade = new Date(hoje.getTime() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('pt-BR')
+
+  const closeMobile = () => setMobileOpen(false)
+
+  function handleFormSubmit(e) {
+    e.preventDefault()
+    const texto = encodeURIComponent(
+      'Olá! Gostaria de um orçamento.\n\n' +
+        `Nome: ${form.nome}\n` +
+        `Restaurante/empresa: ${form.restaurante || '-'}\n` +
+        `Mensagem: ${form.mensagem || '-'}`,
+    )
+    window.open(`${WHATSAPP}?text=${texto}`, '_blank')
+  }
 
   return (
     <div className={styles.page}>
       {/* NAVBAR */}
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <a href="/" className={styles.logo}>
+          <a href="/" className={styles.logo} onClick={closeMobile}>
             <img src={logo} alt="Logo KendryaIA" className={styles.logoImg} />
             Kendrya<span className={styles.logoAccent}>IA</span>
           </a>
@@ -164,8 +258,29 @@ export default function Landing() {
             <a href={orcamentoBtn.href} className={styles.ctaSmall}>
               {orcamentoBtn.label}
             </a>
+            <button
+              type="button"
+              className={styles.hamburger}
+              onClick={() => setMobileOpen((s) => !s)}
+              aria-label="Abrir menu"
+            >
+              {mobileOpen ? '✕' : '☰'}
+            </button>
           </div>
         </div>
+
+        {mobileOpen && (
+          <nav className={styles.mobileNav}>
+            {nav.map((item) => (
+              <a key={item.href} href={item.href} className={styles.mobileLink} onClick={closeMobile}>
+                {item.label}
+              </a>
+            ))}
+            <a href={orcamentoBtn.href} className={styles.mobileCta} onClick={closeMobile}>
+              {orcamentoBtn.label}
+            </a>
+          </nav>
+        )}
       </header>
 
       {/* HERO */}
@@ -249,10 +364,10 @@ export default function Landing() {
                   <div className={styles.etiquetaInfo}>
                     <div className={styles.etiquetaRowTop}>
                       <span>
-                        <b>PRODUÇÃO:</b> 15/09/2026
+                        <b>PRODUÇÃO:</b> {producao}
                       </span>
                       <span>
-                        <b>VALIDADE:</b> 22/09/2026
+                        <b>VALIDADE:</b> {validade}
                       </span>
                     </div>
                     <div className={styles.etiquetaRowBottom}>
@@ -304,7 +419,7 @@ export default function Landing() {
       <section className={styles.metrics}>
         <div className={styles.metric}>
           <strong>3×</strong>
-          <span>menos tempo embalando produtos</span>
+          <span>mais rápido que rotulagem por digitação manual</span>
         </div>
         <div className={styles.metric}>
           <strong>0</strong>
@@ -328,7 +443,9 @@ export default function Landing() {
         <div className={styles.grid}>
           {recursos.map((r) => (
             <div key={r.titulo} className={styles.card}>
-              <div className={styles.cardIcon}>{r.icon}</div>
+              <div className={styles.cardIcon}>
+                <Icon name={r.icon} />
+              </div>
               <h3>{r.titulo}</h3>
               <p>{r.texto}</p>
             </div>
@@ -357,22 +474,30 @@ export default function Landing() {
 
         <div className={styles.flow}>
           <div className={styles.flowItem}>
-            <span>🗣️</span>
+            <span>
+              <Icon name="mic" />
+            </span>
             <strong>Você fala</strong>
           </div>
           <div className={styles.flowArrow}>→</div>
           <div className={styles.flowItem}>
-            <span>🧠</span>
+            <span>
+              <Icon name="workflow" />
+            </span>
             <strong>Agente IA (n8n)</strong>
           </div>
           <div className={styles.flowArrow}>→</div>
           <div className={styles.flowItem}>
-            <span>🏷️</span>
+            <span>
+              <Icon name="tag" />
+            </span>
             <strong>Etiquetas prontas</strong>
           </div>
           <div className={styles.flowArrow}>→</div>
           <div className={styles.flowItem}>
-            <span>🖨️</span>
+            <span>
+              <Icon name="printer" />
+            </span>
             <strong>Impressão Bluetooth</strong>
           </div>
         </div>
@@ -437,6 +562,65 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* CONTATO */}
+      <section id="contato" className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2 className={styles.sectionTitle}>Fale com a gente</h2>
+          <p className={styles.sectionSub}>
+            Preencha e a gente responde direto no seu WhatsApp.
+          </p>
+        </div>
+
+        <form
+          className={styles.form}
+          onSubmit={handleFormSubmit}
+        >
+          <div className={styles.formRow}>
+            <div className={styles.formField}>
+              <label className={styles.formLabel} htmlFor="campo-nome">
+                Seu nome
+              </label>
+              <input
+                id="campo-nome"
+                className={styles.formInput}
+                placeholder="Seu nome"
+                value={form.nome}
+                onChange={(e) => setForm({ ...form, nome: e.target.value })}
+                required
+              />
+            </div>
+            <div className={styles.formField}>
+              <label className={styles.formLabel} htmlFor="campo-restaurante">
+                Restaurante / empresa
+              </label>
+              <input
+                id="campo-restaurante"
+                className={styles.formInput}
+                placeholder="Restaurante / empresa"
+                value={form.restaurante}
+                onChange={(e) => setForm({ ...form, restaurante: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className={styles.formField}>
+            <label className={styles.formLabel} htmlFor="campo-mensagem">
+              Mensagem
+            </label>
+            <textarea
+              id="campo-mensagem"
+              className={styles.formArea}
+              rows={4}
+              placeholder="Conte um pouco do que você precisa..."
+              value={form.mensagem}
+              onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
+            />
+          </div>
+          <button type="submit" className={styles.cta}>
+            Enviar pelo WhatsApp
+          </button>
+        </form>
+      </section>
+
       {/* CTA FINAL */}
       <section className={styles.finalCta}>
         <div className={styles.finalGlow} />
@@ -446,6 +630,20 @@ export default function Landing() {
           {orcamentoBtn.label}
         </a>
       </section>
+
+      {/* WHATSAPP FLUTUANTE */}
+      <a
+        href={WHATSAPP}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.waFloat}
+        aria-label="Falar no WhatsApp"
+        title="Falar no WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true">
+          <path d="M16.04 4C9.4 4 4 9.4 4 16.04c0 2.12.56 4.18 1.6 6L4 28l6.08-1.6a12.3 12.3 0 0 0 5.92 1.6c6.64 0 12.04-5.4 12.04-12.04S22.68 4 16.04 4Zm0 22c-1.72 0-3.4-.46-4.84-1.32l-.36-.2-3.6.96.96-3.52-.24-.36a9.9 9.9 0 0 1-1.52-5.32C6.44 10.3 10.74 6 16.04 6s9.6 4.3 9.6 9.56S21.34 26 16.04 26Zm5.32-7.2c-.28-.16-1.68-.84-1.96-.92-.28-.08-.48-.12-.68.16-.2.28-.78.92-.96 1.12-.16.2-.32.2-.6.04-.28-.16-1.24-.44-2.36-1.44-.88-.8-1.44-1.76-1.6-2.04-.16-.28-.04-.44.12-.6.16-.12.28-.32.4-.48.12-.16.16-.28.24-.44.08-.16.04-.32-.04-.44-.08-.16-.68-1.72-.92-2.32-.24-.6-.48-.52-.68-.52h-.56c-.2 0-.52.08-.8.36-.28.28-1.04 1.04-1.04 2.48s1.08 2.84 1.24 3.04c.16.16 2.08 3.2 5.08 4.52.72.32 1.24.48 1.68.64.72.2 1.36.16 1.88.08.56-.08 1.68-.68 1.92-1.36.24-.68.24-1.24.16-1.36-.08-.12-.28-.16-.56-.32Z" />
+        </svg>
+      </a>
 
       {/* FOOTER */}
       <footer className={styles.footer}>
