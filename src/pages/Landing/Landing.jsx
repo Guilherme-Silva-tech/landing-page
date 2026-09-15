@@ -217,24 +217,12 @@ const orcamentoBtn = {
 export default function Landing() {
   const [faqOpen, setFaqOpen] = useState(null)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [form, setForm] = useState({ nome: '', restaurante: '', mensagem: '' })
 
   const hoje = new Date()
   const producao = hoje.toLocaleDateString('pt-BR')
   const validade = new Date(hoje.getTime() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('pt-BR')
 
   const closeMobile = () => setMobileOpen(false)
-
-  function handleFormSubmit(e) {
-    e.preventDefault()
-    const texto = encodeURIComponent(
-      'Olá! Gostaria de um orçamento.\n\n' +
-        `Nome: ${form.nome}\n` +
-        `Restaurante/empresa: ${form.restaurante || '-'}\n` +
-        `Mensagem: ${form.mensagem || '-'}`,
-    )
-    window.open(`${WHATSAPP}?text=${texto}`, '_blank')
-  }
 
   return (
     <div className={styles.page}>
@@ -562,76 +550,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* CONTATO */}
-      <section id="contato" className={styles.section}>
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>Fale com a gente</h2>
-          <p className={styles.sectionSub}>
-            Preencha e a gente responde direto no seu WhatsApp.
-          </p>
-        </div>
-
-        <form
-          className={styles.form}
-          onSubmit={handleFormSubmit}
-        >
-          <div className={styles.formRow}>
-            <div className={styles.formField}>
-              <label className={styles.formLabel} htmlFor="campo-nome">
-                Seu nome
-              </label>
-              <input
-                id="campo-nome"
-                className={styles.formInput}
-                placeholder="Seu nome"
-                value={form.nome}
-                onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                required
-              />
-            </div>
-            <div className={styles.formField}>
-              <label className={styles.formLabel} htmlFor="campo-restaurante">
-                Restaurante / empresa
-              </label>
-              <input
-                id="campo-restaurante"
-                className={styles.formInput}
-                placeholder="Restaurante / empresa"
-                value={form.restaurante}
-                onChange={(e) => setForm({ ...form, restaurante: e.target.value })}
-              />
-            </div>
-          </div>
-          <div className={styles.formField}>
-            <label className={styles.formLabel} htmlFor="campo-mensagem">
-              Mensagem
-            </label>
-            <textarea
-              id="campo-mensagem"
-              className={styles.formArea}
-              rows={4}
-              placeholder="Conte um pouco do que você precisa..."
-              value={form.mensagem}
-              onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
-            />
-          </div>
-          <button type="submit" className={styles.cta}>
-            Enviar pelo WhatsApp
-          </button>
-        </form>
-      </section>
-
-      {/* CTA FINAL */}
-      <section className={styles.finalCta}>
-        <div className={styles.finalGlow} />
-        <h2>Pronto para modernizar a rotulagem do seu restaurante?</h2>
-        <p>Agende uma demonstração e veja a etiqueta saindo em menos de um minuto.</p>
-        <a href={orcamentoBtn.href} className={styles.cta}>
-          {orcamentoBtn.label}
-        </a>
-      </section>
-
-      {/* WHATSAPP FLUTUANTE */}
+{/* WHATSAPP FLUTUANTE */}
       <a
         href={WHATSAPP}
         target="_blank"
