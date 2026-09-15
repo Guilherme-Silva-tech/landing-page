@@ -2,125 +2,10 @@ import { useState } from 'react'
 import styles from './Landing.module.css'
 import logo from '../../assets/logo.jpg'
 
-const paths = {
-  mic: (
-    <>
-      <rect x="9" y="2" width="6" height="12" rx="3" />
-      <path d="M5 10a7 7 0 0 0 14 0" />
-      <path d="M12 19v3" />
-    </>
-  ),
-  bot: (
-    <>
-      <path d="M12 8V4H8" />
-      <rect width="16" height="12" x="4" y="8" rx="2" />
-      <path d="M2 14h2" />
-      <path d="M20 14h2" />
-      <path d="M15 13v2" />
-      <path d="M9 13v2" />
-    </>
-  ),
-  printer: (
-    <>
-      <path d="M6 9V2h12v7" />
-      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-      <rect x="6" y="14" width="12" height="8" rx="1" />
-    </>
-  ),
-  tag: (
-    <>
-      <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
-      <circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" />
-    </>
-  ),
-  list: (
-    <>
-      <path d="M11 12H3" />
-      <path d="M16 6H3" />
-      <path d="M16 18H3" />
-      <path d="M18 9v6" />
-      <path d="M21 12h-6" />
-    </>
-  ),
-  users: (
-    <>
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </>
-  ),
-  workflow: (
-    <>
-      <rect width="8" height="8" x="3" y="3" rx="2" />
-      <path d="M7 11v4a2 2 0 0 0 2 2h4" />
-      <rect width="8" height="8" x="13" y="13" rx="2" />
-    </>
-  ),
-}
-
-function Icon({ name, size = 24 }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {paths[name]}
-    </svg>
-  )
-}
-
 const nav = [
-  { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#como-funciona' },
   { label: 'Planos', href: '#planos' },
   { label: 'Perguntas', href: '#faq' },
-]
-
-const recursos = [
-  {
-    icon: 'mic',
-    titulo: 'Comando por voz',
-    texto:
-      'Diga o que precisa e pronto: "15 etiquetas de frango congelado SIF 234". A IA entende o pedido na hora — sem digitar nada.',
-  },
-  {
-    icon: 'bot',
-    titulo: 'IA que entende o pedido',
-    texto:
-      'A IA interpreta cada pedido livre de forma inteligente e devolve as etiquetas prontas, padronizadas e com todos os campos certos.',
-  },
-  {
-    icon: 'printer',
-    titulo: 'Impressão direta por Bluetooth',
-    texto:
-      'Conecte sua impressora térmica de etiquetas e imprima direto do celular ou do computador — sem cabos, sem configuração.',
-  },
-  {
-    icon: 'tag',
-    titulo: 'Etiquetas prontas para a legislação',
-    texto:
-      'Produto, tipo (congelado/resfriado/seco), código SIF e validade calculada automaticamente. Controle sanitário em dia, sem retrabalho.',
-  },
-  {
-    icon: 'list',
-    titulo: 'Fila inteligente de impressão',
-    texto:
-      'Acumule vários pedidos e imprima todos de um toque só. Ajuste quantidades com + e −, veja tudo antes de enviar para a impressora.',
-  },
-  {
-    icon: 'users',
-    titulo: 'Gestão de equipe e acesso',
-    texto:
-      'Crie funcionários, defina permissões por papel e acompanhe o histórico de impressões de cada responsável. Controle total do seu restaurante.',
-  },
 ]
 
 const passos = [
@@ -441,28 +326,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* RECURSOS */}
-      <section id="recursos" className={styles.section}>
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>Tudo que a sua cozinha precisa</h2>
-          <p className={styles.sectionSub}>
-            Do pedido falado até o papel preso na embalagem, a KendryiaIA cuida do caminho inteiro.
-          </p>
-        </div>
-
-        <div className={styles.grid}>
-          {recursos.map((r) => (
-            <div key={r.titulo} className={styles.card}>
-              <div className={styles.cardIcon}>
-                <Icon name={r.icon} />
-              </div>
-              <h3>{r.titulo}</h3>
-              <p>{r.texto}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* COMO FUNCIONA */}
       <section id="como-funciona" className={styles.section}>
         <div className={styles.sectionHead}>
@@ -582,7 +445,6 @@ export default function Landing() {
           <div className={styles.footerCols}>
             <div>
               <strong>Produto</strong>
-              <a href="#recursos">Recursos</a>
               <a href="#como-funciona">Como funciona</a>
               <a href="#planos">Planos</a>
             </div>
