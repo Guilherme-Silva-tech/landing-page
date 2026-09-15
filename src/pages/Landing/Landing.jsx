@@ -93,9 +93,9 @@ const recursos = [
   },
   {
     icon: 'bot',
-    titulo: 'IA via n8n + OpenAI',
+    titulo: 'IA que entende o pedido',
     texto:
-      'Um agente de IA interpreta cada pedido livre de forma inteligente e devolve as etiquetas prontas, padronizadas e com todos os campos certos.',
+      'A IA interpreta cada pedido livre de forma inteligente e devolve as etiquetas prontas, padronizadas e com todos os campos certos.',
   },
   {
     icon: 'printer',
@@ -134,7 +134,7 @@ const passos = [
     passo: '2',
     titulo: 'A IA interpreta',
     texto:
-      'O agente no n8n entende produto, quantidade, tipo, SIF e gera cada etiqueta no padrão do seu restaurante.',
+      'A IA entende produto, quantidade, tipo, SIF e gera cada etiqueta no padrão do seu restaurante.',
   },
   {
     passo: '3',
@@ -162,7 +162,7 @@ const planos = [
       '3.000 etiquetas por mês inclusas',
       'App completo de etiquetas',
       'Reconhecimento de voz',
-      'IA via n8n (OpenAI)',
+      'IA que entende o pedido',
       'Impressão por Bluetooth',
       'Histórico de impressões',
       'Selo de conformidade',
@@ -196,9 +196,9 @@ const faqs = [
       'Não. A KendryiaIA funciona em navegador (Android e PC) e pelo app Bluefy no iPhone. Suporta as etiquetadoras térmicas via Bluetooth.',
   },
   {
-    pergunta: 'Como funciona a IA?',
+    pergunta: 'A IA entende o que eu falo ou digito?',
     resposta:
-      'Um agente de IA hospedado no n8n interpreta o pedido falado ou digitado e devolve as etiquetas estruturadas. O app ainda tem fallback local: se a IA estiver fora, a interpretação continua acontecendo.',
+      'Sim. Fale ou digite o pedido do jeito que quiser e a IA gera as etiquetas prontas, padronizadas e com todos os campos certos — sem digitar campo por campo.',
   },
   {
     pergunta: 'A etiqueta atende às regras de rotulagem?',
@@ -480,36 +480,6 @@ export default function Landing() {
               <p>{s.texto}</p>
             </div>
           ))}
-        </div>
-
-        <div className={styles.flow}>
-          <div className={styles.flowItem}>
-            <span>
-              <Icon name="mic" />
-            </span>
-            <strong>Você fala</strong>
-          </div>
-          <div className={styles.flowArrow}>→</div>
-          <div className={styles.flowItem}>
-            <span>
-              <Icon name="workflow" />
-            </span>
-            <strong>Agente IA (n8n)</strong>
-          </div>
-          <div className={styles.flowArrow}>→</div>
-          <div className={styles.flowItem}>
-            <span>
-              <Icon name="tag" />
-            </span>
-            <strong>Etiquetas prontas</strong>
-          </div>
-          <div className={styles.flowArrow}>→</div>
-          <div className={styles.flowItem}>
-            <span>
-              <Icon name="printer" />
-            </span>
-            <strong>Impressão Bluetooth</strong>
-          </div>
         </div>
       </section>
 
