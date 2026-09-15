@@ -196,35 +196,105 @@ export default function Landing() {
 
         <div className={styles.demo}>
           <div className={styles.demoWindow}>
-            <div className={styles.demoBar}>
-              <span>kendryia.tech/etiquetas</span>
+            {/* TOPO DO APP */}
+            <div className={styles.demoTop}>
+              <div>
+                <div className={styles.demoLogo}>KendryaIA</div>
+                <div className={styles.demoSub}>Etiquetas inteligentes</div>
+              </div>
+              <div className={styles.demoTopRight}>
+                <span className={styles.demoBell}>🔔</span>
+                <span className={styles.demoUserChip}>
+                  <span className={styles.demoAvatar}>J</span>
+                  João
+                </span>
+                <span className={styles.demoSair}>Sair</span>
+              </div>
+            </div>
+
+            {/* ABAS */}
+            <div className={styles.demoTabs}>
+              <span className={`${styles.demoTab} ${styles.demoTabActive}`}>✨ Gerar</span>
+              <span className={styles.demoTab}>👑 Admin</span>
             </div>
 
             <div className={styles.demoBody}>
+              {/* CHAT */}
               <div className={styles.demoChat}>
-                <div className={`${styles.bubble} ${styles.bubbleBot}`}>
-                  Bem-vindo 👋 — fale ou digite o que precisa.
+                <div className={styles.demoEmpty}>
+                  <div className={styles.demoEmptyIcon}>🏷️</div>
+                  <div className={styles.demoEmptyTitle}>Bem-vindo 👋</div>
+                  <div className={styles.demoEmptyText}>
+                    Ex: "quero 15 etiquetas de frango congelado sif 234"
+                  </div>
                 </div>
-                <div className={`${styles.bubble} ${styles.bubbleVoice}`}>
-                  🎤 <em>"quero 15 etiquetas de frango congelado sif 234"</em>
+
+                <div className={`${styles.msg} ${styles.msgUser}`}>
+                  <span className={styles.msgMic}>🎤</span> quero 15 etiquetas de
+                  frango congelado sif 234
                 </div>
-                <div className={`${styles.bubble} ${styles.bubbleBot}`}>
-                  ✅ 15 etiqueta(s) gerada(s) — FRANGO · CONGELADO · SIF 234
+                <div className={`${styles.msg} ${styles.msgBot}`}>
+                  ✅ 15 etiqueta(s) gerada(s)
                 </div>
               </div>
 
-              <div className={styles.demoLabel}>
-                <div className={styles.labelProduct}>FRANGO</div>
-                <div className={styles.labelRow}>
-                  <span>CONGELADO</span>
-                  <span>SIF 234</span>
+              {/* ETIQUETA GERADA (igual à da impressora) */}
+              <div className={styles.demoResult}>
+                <div className={styles.etiqueta}>
+                  <div className={styles.etiquetaHeader}>
+                    <span className={styles.etiquetaLogo}>KENDRYIA</span>
+                    <span className={styles.etiquetaTipoTop}>ETIQUETA</span>
+                  </div>
+                  <div className={styles.etiquetaProduto}>FRANGO</div>
+                  <div className={styles.etiquetaInfo}>
+                    <div className={styles.etiquetaRowTop}>
+                      <span>
+                        <b>PRODUÇÃO:</b> 15/09/2026
+                      </span>
+                      <span>
+                        <b>VALIDADE:</b> 22/09/2026
+                      </span>
+                    </div>
+                    <div className={styles.etiquetaRowBottom}>
+                      <span>
+                        <b>SIF:</b> 234
+                      </span>
+                      <span>
+                        <b>RESP:</b> João
+                      </span>
+                    </div>
+                  </div>
+                  <div className={styles.etiquetaTipos}>
+                    <span className={styles.etiquetaTipo}>
+                      <span className={styles.etiquetaCheck}>✓</span> CONGELADO
+                    </span>
+                    <span className={styles.etiquetaTipo}>
+                      <span className={styles.etiquetaCheck} /> RESFRIADO
+                    </span>
+                    <span className={styles.etiquetaTipo}>
+                      <span className={styles.etiquetaCheck} /> SECO
+                    </span>
+                  </div>
                 </div>
-                <div className={styles.labelValid}>Val. 22/09/2026</div>
+
+                <span className={styles.maisEtiquetas}>
+                  +14 etiquetas <small>👁️ ver todas</small>
+                </span>
+
+                <div className={styles.demoPrintRow}>
+                  <button className={styles.demoPrintA}>🖨️ Imprimir IMPRESSORA A</button>
+                  <button className={styles.demoPrintB}>🖨️ Imprimir IMPRESSORA B</button>
+                </div>
               </div>
 
-              <button className={styles.demoPrint} disabled>
-                🖨️ Imprimir IMPRESSORA A
-              </button>
+              {/* INPUT */}
+              <div className={styles.demoInputRow}>
+                <span className={styles.demoInput}>Digite ou fale o que precisa...</span>
+                <div className={styles.demoInputBtns}>
+                  <button className={styles.demoSend}>Enviar</button>
+                  <button className={styles.demoVoice}>🎤 Falar</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
