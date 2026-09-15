@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import styles from './Landing.module.css'
 
-const APP_URL = 'https://impressora.kendryia.tech'
-
 const nav = [
   { label: 'Recursos', href: '#recursos' },
   { label: 'Como funciona', href: '#como-funciona' },
@@ -160,7 +158,6 @@ export default function Landing() {
           </nav>
 
           <div className={styles.headerActions}>
-            <a href={APP_URL} className={styles.loginLink}>Entrar</a>
             <a href={orcamentoBtn.href} className={styles.ctaSmall}>
               {orcamentoBtn.label}
             </a>

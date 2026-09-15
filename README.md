@@ -27,5 +27,4 @@ O projeto é uma SPA estática (Vite). Pode ser publicada na Vercel, Netlify, Gi
 
 ## Links
 
-- Produto/app: https://impressora.kendryia.tech
 - Contato: contato@kendryia.tech

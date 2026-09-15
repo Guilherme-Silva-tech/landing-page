@@ -72,18 +72,6 @@
   gap: 16px;
 }
 
-.loginLink {
-  color: #9CA3AF;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 200ms ease;
-}
-
-.loginLink:hover {
-  color: #fff;
-}
-
 .ctaSmall {
   background: #6C3CE1;
   color: #fff;
