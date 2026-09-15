@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './Landing.module.css'
+import logo from '../../assets/logo.jpg'
 
 const nav = [
   { label: 'Recursos', href: '#recursos' },
@@ -145,7 +146,7 @@ export default function Landing() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <a href="/" className={styles.logo}>
-            <span className={styles.logoMark}>🏷️</span>
+            <img src={logo} alt="Logo KendryaIA" className={styles.logoImg} />
             Kendrya<span className={styles.logoAccent}>IA</span>
           </a>
 
@@ -449,7 +450,7 @@ export default function Landing() {
         <div className={styles.footerInner}>
           <div>
             <div className={styles.footerLogo}>
-              <span className={styles.logoMark}>🏷️</span>
+              <img src={logo} alt="Logo KendryaIA" className={styles.logoImgFooter} />
               Kendrya<span className={styles.logoAccent}>IA</span>
             </div>
             <p className={styles.footerTagline}>
