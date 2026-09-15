@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -20,7 +22,9 @@
       content="Fale o pedido e a IA gera as etiquetas prontas, padronizadas e imprime direto na sua etiquetadora por Bluetooth. Menos retrabalho, mais conformidade."
     />
     <meta property="og:url" content="https://kendryia-landing.vercel.app/" />
-    <meta property="og:image" content="https://kendryia-landing.vercel.app/logo.jpg" />
+    <meta property="og:image" content="https://kendryia-landing.vercel.app/og-banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="KendryaIA" />
     <meta property="og:locale" content="pt_BR" />
 
@@ -30,7 +34,7 @@
       name="twitter:description"
       content="Fale o pedido e a IA gera as etiquetas prontas, padronizadas e imprime direto na sua etiquetadora por Bluetooth."
     />
-    <meta name="twitter:image" content="https://kendryia-landing.vercel.app/logo.jpg" />
+    <meta name="twitter:image" content="https://kendryia-landing.vercel.app/og-banner.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,6 +61,71 @@
           "description": "Plano mensal individual para restaurantes",
           "availability": "https://schema.org/InStock"
         }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Preciso de equipamento especial para usar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. A KendryiaIA funciona em navegador (Android e PC) e pelo app Bluefy no iPhone. Suporta as etiquetadoras térmicas Niimbot e Coibeu via Bluetooth."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona a IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Um agente de IA hospedado no n8n interpreta o pedido falado ou digitado e devolve as etiquetas estruturadas. O app ainda tem fallback local: se a IA estiver fora, a interpretação continua acontecendo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A etiqueta atende às regras de rotulagem?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. O sistema gera produto, tipo de conservação, código SIF quando informado e validade calculada automaticamente, no padrão exigido pelos órgãos de vigilância sanitária."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "A impressora de etiquetas está inclusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A impressora térmica de etiquetas (compatível com Niimbot e Coibeu) já está inclusa no valor do plano — você não paga nada separado por ela."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quantas etiquetas tenho por mês?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O plano inclui 3.000 etiquetas por mês. Se a cota acabar, cada pacote avulso de 1.000 etiquetas custa R$ 100."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais as formas de pagamento?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cartão de crédito com cobrança recorrente mensal ou Pix. Para o plano Rede/Multi-unidades, condições e faturamento são alinhados com nossa equipe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso testar antes de contratar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim! Fale com nossa equipe para agendar uma demonstração ao vivo com o seu cenário."
+            }
+          }
+        ]
       }
     </script>
 

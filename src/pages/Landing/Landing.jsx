@@ -156,8 +156,10 @@ const planos = [
     destaque: false,
     preco: 'R$ 97',
     periodo: '/mês',
-    descricao: 'Para o seu restaurante com 1 operação',
+    descricao: 'Impressora de etiquetas inclusa no valor',
     recursos: [
+      'Impressora de etiquetas inclusa',
+      '3.000 etiquetas por mês inclusas',
       'App completo de etiquetas',
       'Reconhecimento de voz',
       'IA via n8n (OpenAI)',
@@ -166,6 +168,7 @@ const planos = [
       'Selo de conformidade',
     ],
     cta: 'Começar agora',
+    wa: 'Quero começar com o plano Único (R$ 97/mês, impressora inclusa).',
   },
   {
     nome: 'Rede / Multi-unidades',
@@ -182,6 +185,7 @@ const planos = [
       'Suporte prioritário',
     ],
     cta: 'Falar com vendas',
+    wa: 'Gostaria de um orçamento para o plano Rede/Multi-unidades.',
   },
 ]
 
@@ -200,6 +204,21 @@ const faqs = [
     pergunta: 'A etiqueta atende às regras de rotulagem?',
     resposta:
       'Sim. O sistema gera produto, tipo de conservação, código SIF quando informado e validade calculada automaticamente, no padrão exigido pelos órgãos de vigilância sanitária.',
+  },
+  {
+    pergunta: 'A impressora de etiquetas está inclusa?',
+    resposta:
+      'Sim. A impressora térmica de etiquetas (compatível com Niimbot e Coibeu) já está inclusa no valor do plano — você não paga nada separado por ela.',
+  },
+  {
+    pergunta: 'Quantas etiquetas tenho por mês?',
+    resposta:
+      'O plano inclui 3.000 etiquetas por mês. Se a cota acabar, cada pacote avulso de 1.000 etiquetas custa R$ 100.',
+  },
+  {
+    pergunta: 'Quais as formas de pagamento?',
+    resposta:
+      'Cartão de crédito com cobrança recorrente mensal ou Pix. Para o plano Rede/Multi-unidades, condições e faturamento são alinhados com nossa equipe.',
   },
   {
     pergunta: 'Posso testar antes de contratar?',
@@ -230,7 +249,7 @@ export default function Landing() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <a href="/" className={styles.logo} onClick={closeMobile}>
-            <img src={logo} alt="Logo KendryaIA" className={styles.logoImg} />
+            <img src={logo} alt="Logo KendryaIA" className={styles.logoImg} width={36} height={36} />
             Kendrya<span className={styles.logoAccent}>IA</span>
           </a>
 
@@ -296,6 +315,9 @@ export default function Landing() {
             Ver como funciona
           </a>
         </div>
+        <p className={styles.ctaNote}>
+          Impressora de etiquetas inclusa no valor · Resposta no mesmo dia útil
+        </p>
 
         <div className={styles.demo}>
           <div className={styles.demoWindow}>
@@ -518,12 +540,22 @@ export default function Landing() {
                   <li key={r}>✓ {r}</li>
                 ))}
               </ul>
-              <a href={orcamentoBtn.href} className={p.destaque ? styles.cta : styles.ctaGhost}>
+              <a
+                href={`${WHATSAPP}?text=${encodeURIComponent(p.wa)}`}
+                className={p.destaque ? styles.cta : styles.ctaGhost}
+              >
                 {p.cta}
               </a>
             </div>
           ))}
         </div>
+
+        <p className={styles.planNote}>
+          Está incluso no plano: a impressora de etiquetas e 3.000 etiquetas por mês.
+          <br />
+          Acabaram as etiquetas? Cada pacote avulso de 1.000 etiquetas custa{' '}
+          <strong>R$ 100</strong>.
+        </p>
       </section>
 
       {/* FAQ */}
@@ -569,7 +601,7 @@ export default function Landing() {
         <div className={styles.footerInner}>
           <div>
             <div className={styles.footerLogo}>
-              <img src={logo} alt="Logo KendryaIA" className={styles.logoImgFooter} />
+              <img src={logo} alt="Logo KendryaIA" className={styles.logoImgFooter} width={30} height={30} />
               Kendrya<span className={styles.logoAccent}>IA</span>
             </div>
             <p className={styles.footerTagline}>

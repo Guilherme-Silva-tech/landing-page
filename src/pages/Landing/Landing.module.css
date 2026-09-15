@@ -229,8 +229,18 @@
 }
 
 .ctaGhost:hover {
-  border-color: #A78BFA;
+  border-color: rgba(139, 92, 246, 0.5);
   background: rgba(139, 92, 246, 0.08);
+}
+
+.ctaNote {
+  margin-top: 18px;
+  color: #9CA3AF;
+  font-size: 0.9rem;
+}
+
+.ctaNote strong {
+  color: #C084FC;
 }
 
 /* ============ DEMO ============ */
@@ -819,6 +829,23 @@
   gap: 28px;
   max-width: 760px;
   margin: 0 auto;
+}
+
+.planNote {
+  margin: 36px auto 0;
+  max-width: 640px;
+  text-align: center;
+  color: #9CA3AF;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 14px;
+  padding: 18px 22px;
+}
+
+.planNote strong {
+  color: #C084FC;
 }
 
 .plan {
