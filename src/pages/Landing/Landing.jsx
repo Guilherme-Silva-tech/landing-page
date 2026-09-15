@@ -101,7 +101,7 @@ const recursos = [
     icon: 'printer',
     titulo: 'Impressão direta por Bluetooth',
     texto:
-      'Conecte suas impressoras térmicas de etiqueta (Niimbot e Coibeu) e imprima direto do celular ou do computador — sem cabos, sem configuração.',
+      'Conecte sua impressora térmica de etiquetas e imprima direto do celular ou do computador — sem cabos, sem configuração.',
   },
   {
     icon: 'tag',
@@ -163,7 +163,7 @@ const planos = [
       'App completo de etiquetas',
       'Reconhecimento de voz',
       'IA via n8n (OpenAI)',
-      'Impressão Niimbot e Coibeu',
+      'Impressão por Bluetooth',
       'Histórico de impressões',
       'Selo de conformidade',
     ],
@@ -193,7 +193,7 @@ const faqs = [
   {
     pergunta: 'Preciso de equipamento especial para usar?',
     resposta:
-      'Não. A KendryiaIA funciona em navegador (Android e PC) e pelo app Bluefy no iPhone. Suporta as etiquetadoras térmicas Niimbot e Coibeu via Bluetooth.',
+      'Não. A KendryiaIA funciona em navegador (Android e PC) e pelo app Bluefy no iPhone. Suporta as etiquetadoras térmicas via Bluetooth.',
   },
   {
     pergunta: 'Como funciona a IA?',
@@ -208,7 +208,7 @@ const faqs = [
   {
     pergunta: 'A impressora de etiquetas está inclusa?',
     resposta:
-      'Sim. A impressora térmica de etiquetas (compatível com Niimbot e Coibeu) já está inclusa no valor do plano — você não paga nada separado por ela.',
+      'Sim. A impressora térmica de etiquetas já está inclusa no valor do plano — você não paga nada separado por ela.',
   },
   {
     pergunta: 'Quantas etiquetas tenho por mês?',
