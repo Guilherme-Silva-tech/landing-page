@@ -132,9 +132,11 @@ const faqs = [
   },
 ]
 
+const WHATSAPP = 'https://wa.me/5511994574964'
+
 const orcamentoBtn = {
-  label: 'Solicitar orçamento',
-  href: 'mailto:contato@kendryia.tech?subject=Orçamento%20KendryaIA',
+  label: 'Solicitar orçamento no WhatsApp',
+  href: WHATSAPP,
 }
 
 export default function Landing() {
@@ -467,7 +469,7 @@ export default function Landing() {
             </div>
             <div>
               <strong>Contato</strong>
-              <a href={orcamentoBtn.href}>contato@kendryia.tech</a>
+              <a href={WHATSAPP}>+55 11 99457-4964</a>
               <a href="#faq">Perguntas frequentes</a>
             </div>
           </div>
