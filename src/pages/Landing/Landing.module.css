@@ -1226,9 +1226,35 @@
     flex-direction: column;
   }
 
-  .flowArrow {
-    transform: rotate(90deg);
-  }
+.flowArrow {
+  transform: rotate(90deg);
+}
+
+.demo {
+  max-width: none;
+  margin: 48px -16px 0;
+  padding: 0 16px 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.demoImg {
+  width: 560px;
+  max-width: none;
+  border-radius: 16px;
+  scroll-snap-align: center;
+}
+
+.demoHint {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9CA3AF;
+  margin-top: 12px;
+  position: sticky;
+  left: 0;
+}
 }
 
 /* ============ MOVIMENTO REDUZIDO ============ */
