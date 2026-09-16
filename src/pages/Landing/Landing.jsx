@@ -135,7 +135,9 @@ export default function Landing() {
         <div className={styles.headerInner}>
           <a href="/" className={styles.logo} onClick={closeMobile}>
             <img src={logo} alt="Logo KendryIA" className={styles.logoImg} width={36} height={36} />
-            Kendry<span className={styles.logoAccent}>IA</span>
+            <span className={styles.logoText}>
+              Kendry<span className={styles.logoAccent}>IA</span>
+            </span>
           </a>
 
           <nav className={styles.nav}>
@@ -334,7 +336,9 @@ export default function Landing() {
           <div>
             <div className={styles.footerLogo}>
               <img src={logo} alt="Logo KendryIA" className={styles.logoImgFooter} width={30} height={30} />
-              Kendry<span className={styles.logoAccent}>IA</span>
+              <span className={styles.logoText}>
+                Kendry<span className={styles.logoAccent}>IA</span>
+              </span>
             </div>
             <p className={styles.footerTagline}>
               Etiquetas inteligentes para restaurantes e indústrias.
