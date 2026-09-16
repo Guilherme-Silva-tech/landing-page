@@ -48,34 +48,34 @@ const baseRecursos = [
 
 const planos = [
   {
-    nome: '1.000 impressões',
+    nome: 'Essencial',
     destaque: false,
     preco: 'R$ 500',
     periodo: '/mês',
     descricao: 'Impressora de etiquetas inclusa no valor',
-    recursos: ['1.000 etiquetas por mês inclusas', ...baseRecursos],
+    recursos: ['1.000 impressões por mês inclusas', ...baseRecursos],
     cta: 'Começar agora',
-    wa: 'Quero começar com o plano de 1.000 impressões (R$ 500/mês, impressora inclusa).',
+    wa: 'Quero começar com o plano Essencial (R$ 500/mês, 1.000 impressões, impressora inclusa).',
   },
   {
-    nome: '2.000 impressões',
+    nome: 'Profissional',
     destaque: false,
     preco: 'R$ 550',
     periodo: '/mês',
     descricao: 'Impressora de etiquetas inclusa no valor',
-    recursos: ['2.000 etiquetas por mês inclusas', ...baseRecursos],
+    recursos: ['2.000 impressões por mês inclusas', ...baseRecursos],
     cta: 'Começar agora',
-    wa: 'Quero começar com o plano de 2.000 impressões (R$ 550/mês, impressora inclusa).',
+    wa: 'Quero começar com o plano Profissional (R$ 550/mês, 2.000 impressões, impressora inclusa).',
   },
   {
-    nome: '3.000 impressões',
+    nome: 'Premium',
     destaque: false,
-    preco: 'R$ 650',
+    preco: 'R$ 620',
     periodo: '/mês',
     descricao: 'Impressora de etiquetas inclusa no valor',
-    recursos: ['3.000 etiquetas por mês inclusas', ...baseRecursos],
+    recursos: ['3.000 impressões por mês inclusas', ...baseRecursos],
     cta: 'Começar agora',
-    wa: 'Quero começar com o plano de 3.000 impressões (R$ 650/mês, impressora inclusa).',
+    wa: 'Quero começar com o plano Premium (R$ 620/mês, 3.000 impressões, impressora inclusa).',
   },
 ]
 
@@ -103,7 +103,7 @@ const faqs = [
   {
     pergunta: 'Quantas etiquetas tenho por mês?',
     resposta:
-      'Depende do plano escolhido: 1.000, 2.000 ou 3.000 etiquetas por mês. Se a cota acabar, cada pacote avulso de 1.000 etiquetas custa R$ 100.',
+      'Depende do plano escolhido: 1.000, 2.000 ou 3.000 impressões por mês. Se a cota acabar, cada rolo avulso de 1.000 etiquetas custa R$ 80.',
   },
   {
     pergunta: 'Quais as formas de pagamento?',
@@ -285,8 +285,8 @@ export default function Landing() {
         <p className={styles.planNote}>
           Está incluso no plano: a impressora de etiquetas.
           <br />
-          Acabaram as etiquetas? Cada pacote avulso de 1.000 etiquetas custa{' '}
-          <strong>R$ 100</strong>.
+          Acabaram as impressões? Cada rolo avulso de 1.000 etiquetas custa{' '}
+          <strong>R$ 80</strong>.
         </p>
       </section>
 
