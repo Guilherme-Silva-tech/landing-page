@@ -36,42 +36,46 @@ const passos = [
   },
 ]
 
+const baseRecursos = [
+  'Impressora de etiquetas inclusa',
+  'App completo de etiquetas',
+  'Reconhecimento de voz',
+  'IA que entende o pedido',
+  'Impressão por Bluetooth',
+  'Histórico de impressões',
+  'Selo de conformidade',
+]
+
 const planos = [
   {
-    nome: 'Único',
+    nome: '1.000 impressões',
     destaque: false,
-    preco: 'R$ 97',
+    preco: 'R$ 500',
     periodo: '/mês',
     descricao: 'Impressora de etiquetas inclusa no valor',
-    recursos: [
-      'Impressora de etiquetas inclusa',
-      '3.000 etiquetas por mês inclusas',
-      'App completo de etiquetas',
-      'Reconhecimento de voz',
-      'IA que entende o pedido',
-      'Impressão por Bluetooth',
-      'Histórico de impressões',
-      'Selo de conformidade',
-    ],
+    recursos: ['1.000 etiquetas por mês inclusas', ...baseRecursos],
     cta: 'Começar agora',
-    wa: 'Quero começar com o plano Único (R$ 97/mês, impressora inclusa).',
+    wa: 'Quero começar com o plano de 1.000 impressões (R$ 500/mês, impressora inclusa).',
   },
   {
-    nome: 'Rede / Multi-unidades',
-    destaque: true,
-    preco: 'Sob consulta',
-    periodo: '',
-    descricao: 'Para grupos, franquias e redes de restaurantes',
-    recursos: [
-      'Tudo do plano único',
-      'Múltiplos restaurantes',
-      'Painel administrativo central',
-      'Gestão de funcionários por unidade',
-      'Relatórios e exportação',
-      'Suporte prioritário',
-    ],
-    cta: 'Falar com vendas',
-    wa: 'Gostaria de um orçamento para o plano Rede/Multi-unidades.',
+    nome: '2.000 impressões',
+    destaque: false,
+    preco: 'R$ 550',
+    periodo: '/mês',
+    descricao: 'Impressora de etiquetas inclusa no valor',
+    recursos: ['2.000 etiquetas por mês inclusas', ...baseRecursos],
+    cta: 'Começar agora',
+    wa: 'Quero começar com o plano de 2.000 impressões (R$ 550/mês, impressora inclusa).',
+  },
+  {
+    nome: '3.000 impressões',
+    destaque: false,
+    preco: 'R$ 650',
+    periodo: '/mês',
+    descricao: 'Impressora de etiquetas inclusa no valor',
+    recursos: ['3.000 etiquetas por mês inclusas', ...baseRecursos],
+    cta: 'Começar agora',
+    wa: 'Quero começar com o plano de 3.000 impressões (R$ 650/mês, impressora inclusa).',
   },
 ]
 
@@ -99,12 +103,11 @@ const faqs = [
   {
     pergunta: 'Quantas etiquetas tenho por mês?',
     resposta:
-      'O plano inclui 3.000 etiquetas por mês. Se a cota acabar, cada pacote avulso de 1.000 etiquetas custa R$ 100.',
+      'Depende do plano escolhido: 1.000, 2.000 ou 3.000 etiquetas por mês. Se a cota acabar, cada pacote avulso de 1.000 etiquetas custa R$ 100.',
   },
   {
     pergunta: 'Quais as formas de pagamento?',
-    resposta:
-      'Cartão de crédito com cobrança recorrente mensal ou Pix. Para o plano Rede/Multi-unidades, condições e faturamento são alinhados com nossa equipe.',
+    resposta: 'Cartão de crédito com cobrança recorrente mensal ou Pix.',
   },
   {
     pergunta: 'Posso testar antes de contratar?',
@@ -247,7 +250,7 @@ export default function Landing() {
         <div className={styles.sectionHead}>
           <h2 className={styles.sectionTitle}>Planos</h2>
           <p className={styles.sectionSub}>
-            Comece por uma unidade ou leve a IA para toda a sua rede.
+            Escolha a quantidade de etiquetas ideal para o seu restaurante.
           </p>
         </div>
 
@@ -280,7 +283,7 @@ export default function Landing() {
         </div>
 
         <p className={styles.planNote}>
-          Está incluso no plano: a impressora de etiquetas e 3.000 etiquetas por mês.
+          Está incluso no plano: a impressora de etiquetas.
           <br />
           Acabaram as etiquetas? Cada pacote avulso de 1.000 etiquetas custa{' '}
           <strong>R$ 100</strong>.
