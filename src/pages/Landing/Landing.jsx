@@ -208,7 +208,6 @@ export default function Landing() {
 
         <div className={styles.demo}>
           <img src={demo} alt="Demonstração do sistema KendryIA" className={styles.demoImg} />
-          <span className={styles.demoHint}>Arraste para ver a demonstração</span>
         </div>
       </section>
 
